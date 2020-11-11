@@ -1,0 +1,49 @@
+﻿using App.Models.Configuration;
+using Microsoft.Extensions.Configuration;
+using Serilog;
+using Serilog.Formatting.Compact;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace App.Api.DiConfigure
+{
+    //https://nblumhardt.com/2019/10/serilog-in-aspnetcore-3/
+
+
+    /// <summary>
+    /// Инициализация Serilog
+    /// </summary>
+    static class SerilogInit
+    {
+        //https://nblumhardt.com/2019/10/serilog-in-aspnetcore-3/
+        //https://github.com/serilog/serilog-aspnetcore/blob/71165692d5f66c811c3b251047b12c259ac2fe23/samples/EarlyInitializationSample/Program.cs#L12
+        /// <summary>
+        /// Инициализация Serilog из Program
+        /// </summary>
+        public static Serilog.Core.Logger InitFromProgram(IConfiguration configuration)
+        {
+            var config  = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .Enrich.FromLogContext()
+                //.WriteTo.Console(new RenderedCompactJsonFormatter())
+                //.WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
+                .WriteTo.Console()
+                .WriteTo.Debug()
+                .WriteTo.File(SerilogInit.GetSerilogFile(configuration))
+                .CreateLogger();
+
+            return config;
+        }
+
+        /// <summary>
+        /// Получает путь к файлу лога из конфиг файла
+        /// </summary>
+        public static string GetSerilogFile(IConfiguration configuration)
+        {
+            string filePath = configuration[$"{nameof(LoggingConfig)}:{nameof(LoggingConfig.SerilogLogFile)}"];
+            return filePath;
+        }
+    }
+}

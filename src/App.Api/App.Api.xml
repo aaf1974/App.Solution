@@ -9,6 +9,28 @@
             Инициализация БД
             </summary>
         </member>
+        <member name="M:App.Api.DiConfigure.DataBaseInit.InitPostrgresDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            Инициализация Postrgres DataBase 
+            </summary>
+        </member>
+        <member name="T:App.Api.DiConfigure.SerilogInit">
+            <summary>
+            Инициализация Serilog
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.SerilogInit.InitFromProgram(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Инициализация Serilog из Program
+            </summary>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Api.DiConfigure.SerilogInit.GetSerilogFile(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Получает путь к файлу лога из конфиг файла
+            </summary>
+        </member>
         <member name="T:App.Api.DiConfigure.SwaggerInit">
             <summary>
             Инициализация Swagger
@@ -22,6 +44,21 @@
         <member name="M:App.Api.DiConfigure.SwaggerInit.SwaggerMidlwareInit(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Инициализация Middlware Swagger
+            </summary>
+        </member>
+        <member name="T:App.Api.Helpers.AppHelper">
+            <summary>
+            Класс - заглушка для вызова и использования Help-методов 
+            </summary>
+        </member>
+        <member name="P:App.Api.Helpers.AppHelper.Configuration">
+            <summary>
+            Конфигурация приложения
+            </summary>
+        </member>
+        <member name="T:App.Api.Helpers.Extensions">
+            <summary>
+            Вспомогательные методы
             </summary>
         </member>
     </members>
