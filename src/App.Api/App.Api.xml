@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Api</name>
+    </assembly>
+    <members>
+        <member name="T:App.Api.DiConfigure.DataBaseInit">
+            <summary>
+            Инициализация БД
+            </summary>
+        </member>
+        <member name="T:App.Api.DiConfigure.SwaggerInit">
+            <summary>
+            Инициализация Swagger
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.SwaggerInit.SwaggerDiInit(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Инициализация DI Swagger
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.SwaggerInit.SwaggerMidlwareInit(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Инициализация Middlware Swagger
+            </summary>
+        </member>
+    </members>
+</doc>
