@@ -14,21 +14,29 @@
             Инициализация Postrgres DataBase 
             </summary>
         </member>
-        <member name="T:App.Api.DiConfigure.SerilogInit">
+        <member name="T:App.Api.DiConfigure.SerilogInitializer">
             <summary>
             Инициализация Serilog
             </summary>
         </member>
-        <member name="M:App.Api.DiConfigure.SerilogInit.InitFromProgram(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:App.Api.DiConfigure.SerilogInitializer.InitFromProgram(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Инициализация Serilog из Program
             </summary>
-            <param name="configuration"></param>
-            <returns></returns>
         </member>
-        <member name="M:App.Api.DiConfigure.SerilogInit.GetSerilogFile(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:App.Api.DiConfigure.SerilogInitializer.GetSerilogFile(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Получает путь к файлу лога из конфиг файла
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.SerilogInitializer.SerilogInit(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Инициализирует Serilog (можно из программ)
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.SerilogInitializer.SerilogEnable(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Получает флаг включения/отключения из файла конфигурации
             </summary>
         </member>
         <member name="T:App.Api.DiConfigure.SwaggerInit">
@@ -48,7 +56,7 @@
         </member>
         <member name="T:App.Api.Helpers.AppHelper">
             <summary>
-            Класс - заглушка для вызова и использования Help-методов 
+            Helper
             </summary>
         </member>
         <member name="P:App.Api.Helpers.AppHelper.Configuration">

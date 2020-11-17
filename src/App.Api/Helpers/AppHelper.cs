@@ -5,7 +5,7 @@ using System.IO;
 namespace App.Api.Helpers
 {
     /// <summary>
-    /// Класс - заглушка для вызова и использования Help-методов 
+    /// Helper
     /// </summary>
     public class AppHelper
     {
