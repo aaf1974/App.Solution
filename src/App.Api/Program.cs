@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using App.Api.DiConfigure;
 using App.Api.Helpers;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
+using System;
 
 
 namespace App.Api
@@ -19,30 +14,39 @@ namespace App.Api
         public static void Main(string[] args)
         {
             var configuration = AppHelper.Configuration;
+            configuration.SerilogInit();
 
-            Log.Logger = SerilogInit.InitFromProgram(configuration);
+            //Log.Logger = SerilogInit.InitFromProgram(configuration);
+
             try
             {
-                Log.Information("Template App start up");
-                CreateHostBuilder(args).Build().Run();
+                //Log.Information("Template App start up");
+                CreateHostBuilder(args).Run();
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Application start-up failed");
+                //Log.Fatal(ex, "Application start-up failed");
             }
             finally
             {
-                Log.CloseAndFlush();
+                //Log.CloseAndFlush();
             }
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        public static IWebHost CreateHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
                 .UseSerilog()
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+                .CaptureStartupErrors(false)
+                //.UseUrls(GetKestrelUrls())
+                .UseStartup<Startup>()
+                .Build();
+
+        //Host.CreateDefaultBuilder(args)
+        //        .UseSerilog()
+        //        .ConfigureWebHostDefaults(webBuilder =>
+        //        {
+        //            webBuilder.UseStartup<Startup>();
+        //        });
 
         //private static IConfiguration GetConfiguration()
         //{

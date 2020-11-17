@@ -16,7 +16,13 @@ namespace App.Api.Controllers
         {
             int i = 0;
 
-            int j = 8 / i;
+            //int j = 8 / i;
+
+            try
+            {
+                int j2 = 8 / i;
+            }
+            catch { }
 
             return "Serilog test";
         }

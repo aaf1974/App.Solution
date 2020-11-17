@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace App.Models.Configuration
+﻿namespace App.Models.Configuration
 {
     /// <summary>
     /// Настройки логирования
