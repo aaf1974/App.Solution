@@ -21,7 +21,7 @@ namespace App.Api
             try
             {
                 //Log.Information("Template App start up");
-                CreateHostBuilder(args).Run();
+                CreateWebHostBuilder(args).Run();
             }
             catch (Exception ex)
             {
@@ -33,7 +33,7 @@ namespace App.Api
             }
         }
 
-        public static IWebHost CreateHostBuilder(string[] args) =>
+        public static IWebHost CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseSerilog()
                 .CaptureStartupErrors(false)
@@ -58,6 +58,11 @@ namespace App.Api
         //    return builder.Build();
         //}
 
-        
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
