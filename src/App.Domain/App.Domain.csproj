@@ -8,4 +8,8 @@
     <ProjectReference Include="..\App.Domain.Abstraction\App.Domain.Abstraction.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Misc\" />
+  </ItemGroup>
+
 </Project>

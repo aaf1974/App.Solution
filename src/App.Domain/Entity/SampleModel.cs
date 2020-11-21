@@ -2,7 +2,7 @@
 
 namespace App.Domain.Entity
 {
-    public class SampleModel : IIdentity<int>
+    public class SampleModel : IIdentityEntity<int>
     {
         public int Id { get; set; }
 

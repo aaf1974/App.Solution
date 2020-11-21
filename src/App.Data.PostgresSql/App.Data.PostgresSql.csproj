@@ -5,6 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201121115744_testPostgres.cs" />
+    <Compile Remove="Migrations\20201121115744_testPostgres.Designer.cs" />
+    <Compile Remove="Migrations\20201121120947_testPostgres.cs" />
+    <Compile Remove="Migrations\20201121120947_testPostgres.Designer.cs" />
+    <Compile Remove="Migrations\20201121122553_testPostgres.cs" />
+    <Compile Remove="Migrations\20201121122553_testPostgres.Designer.cs" />
+    <Compile Remove="Migrations\20201121161757_postrgreesTest.cs" />
+    <Compile Remove="Migrations\20201121161757_postrgreesTest.Designer.cs" />
+    <Compile Remove="Migrations\20201121175905_postgresTest2.cs" />
+    <Compile Remove="Migrations\20201121175905_postgresTest2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
       <PrivateAssets>all</PrivateAssets>
