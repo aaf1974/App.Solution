@@ -13,7 +13,7 @@ namespace App.Api.DiConfigure
         /// <summary>
         /// Инициализация Postrgres DataBase 
         /// </summary>
-        public static void InitPostrgresDbContext(this IServiceCollection services, string connectionstring)
+        public static IServiceCollection InitPostrgresDbContext(this IServiceCollection services, string connectionstring)
         {
             DbContextOptionsBuilder<AppDbContext> InitContextOptions(DbContextOptionsBuilder<AppDbContext> options)
             {
@@ -28,6 +28,8 @@ namespace App.Api.DiConfigure
                 var options = InitContextOptions(new DbContextOptionsBuilder<AppDbContext>()).Options;
                 return new AppDbContext(options);
             });
+
+            return services;
         }
     }
 }

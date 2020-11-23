@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Data.PostgresSql\App.Data.PostgresSql.csproj" />
+    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj" />
     <ProjectReference Include="..\App.Models\App.Models.csproj" />
   </ItemGroup>
 
