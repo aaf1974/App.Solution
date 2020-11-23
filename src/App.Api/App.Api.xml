@@ -39,6 +39,18 @@
             Получает флаг включения/отключения из файла конфигурации
             </summary>
         </member>
+        <member name="T:App.Api.DiConfigure.StandartInit">
+            <summary>
+            Инициализация стандартных сервисов
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.StandartInit.InitAppAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Инициализаирует AutoMapper
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
         <member name="T:App.Api.DiConfigure.SwaggerInit">
             <summary>
             Инициализация Swagger

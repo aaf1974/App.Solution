@@ -29,7 +29,8 @@ namespace App.Api
             services.AddControllers();
 
             services.SwaggerDiInit()
-                .InitPostrgresDbContext(Configuration.GetConnectionString(nameof(AppDbContext)));
+                .InitPostrgresDbContext(Configuration.GetConnectionString(nameof(AppDbContext)))
+                .InitAppAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
