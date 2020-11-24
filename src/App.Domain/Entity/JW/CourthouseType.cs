@@ -11,8 +11,14 @@ namespace App.Domain.Entity.JW
     {
         public int Id { get; set; }
 
+        /// <summary>
+        /// Наименование типа
+        /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// Код типа
+        /// </summary>
         public string Code { get; set; }
 
         #region Navigation

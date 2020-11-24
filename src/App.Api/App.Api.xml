@@ -50,6 +50,11 @@
             <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteDelete(App.Models.Command.Base.GetByIdCommand)"/>
             </summary>
         </member>
+        <member name="T:App.Api.Controllers.JW.CourthouseTypeController">
+            <summary>
+            Контроллер для управления видами судов
+            </summary>
+        </member>
         <member name="T:App.Api.DiConfigure.DataBaseInit">
             <summary>
             Инициализация БД

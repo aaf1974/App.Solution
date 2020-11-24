@@ -16,7 +16,7 @@ namespace App.Models.Command.Base
     /// <summary>
     /// <inheritdoc cref="BaseTabViewDto"/>
     /// </summary>
-    public class BaseTabViewDto<T>
+    public class BaseTabViewDto<T> : BaseTabViewDto
     {
         /// <summary>
         /// Элементы табличного представления
