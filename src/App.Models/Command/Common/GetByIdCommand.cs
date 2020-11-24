@@ -1,4 +1,4 @@
-﻿namespace App.Models.Command.Base
+﻿namespace App.Models.Command.Common
 {
     /// <summary>
     /// Команда получения объекта по идентификатору

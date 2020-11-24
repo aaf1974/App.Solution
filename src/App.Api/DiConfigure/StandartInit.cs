@@ -19,7 +19,7 @@ namespace App.Api.DiConfigure
         /// <returns></returns>
         public static IServiceCollection InitAppAutoMapper(this IServiceCollection services)
         {
-            services.AddSingleton<AutoMapperConfig>();
+            services.AddSingleton<AppAutoMapperConfig>();
             return services;
         }
     }
