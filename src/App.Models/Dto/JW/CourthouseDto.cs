@@ -1,4 +1,4 @@
-﻿using App.Models.Command.Base;
+﻿using App.Models.Dto.Base;
 
 namespace App.Models.Dto.JW
 {

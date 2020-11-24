@@ -3,6 +3,8 @@ using App.Domain.Entity.JW;
 using App.Infrastructure.Interfaces;
 using App.Infrastructure.Tools;
 using App.Models.Command.Base;
+using App.Models.Command.Common;
+using App.Models.Dto.Base;
 using App.Models.Dto.JW;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,9 +24,9 @@ namespace App.Infrastructure.Handler.Sample
         /// <summary>
         /// <inheritdoc cref="AutoMapperConfig"/>
         /// </summary>
-        private readonly AutoMapperConfig _autoMapper;
+        private readonly AppAutoMapperConfig _autoMapper;
 
-        public BaseStandartOperationHandler(AppDbContext dbContext, AutoMapperConfig autoMapper)
+        public BaseStandartOperationHandler(AppDbContext dbContext, AppAutoMapperConfig autoMapper)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _autoMapper = autoMapper ?? throw new ArgumentNullException(nameof(autoMapper));

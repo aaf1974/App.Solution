@@ -86,7 +86,9 @@ namespace App.Infrastructure.Handler
 
         public virtual async Task<TDto> ExecuteSave(TDto dto)
         {
-            var dbItem = await _dbContext.Set<TModel>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == dto.Id);
+            var dbItem = await _dbContext.Set<TModel>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == dto.Id);
             if(dbItem == null)
             {
                 dbItem = _autoMapper.Mapper.Map<TModel>(dto);
@@ -95,6 +97,7 @@ namespace App.Infrastructure.Handler
             else
             {
                 dbItem = _autoMapper.Mapper.Map<TModel>(dto);
+                _dbContext.Set<TModel>().Update(dbItem);
             }
 
             await _dbContext.SaveChangesAsync();

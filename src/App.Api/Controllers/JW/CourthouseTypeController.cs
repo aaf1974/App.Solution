@@ -1,6 +1,7 @@
 ﻿using App.Api.Controllers.Base;
-using App.Infrastructure.Handler.Sample;
+using App.Infrastructure.Handler;
 using App.Models.Command.Base;
+using App.Models.Dto.Base;
 using App.Models.Dto.JW;
 
 namespace App.Api.Controllers.JW
@@ -11,7 +12,7 @@ namespace App.Api.Controllers.JW
     public class CourthouseTypeController 
         : StandartOperationController<CourthouseTypeDto, BaseGetListCommand, BaseTabViewDto<CourthouseTypeTabItemDto>, CourthouseTypeTabItemDto>
     {
-        public CourthouseTypeController(BaseStandartOperationHandler blHandler)
+        public CourthouseTypeController(CourthouseTypeHandler blHandler)
             : base(blHandler)
         {
 

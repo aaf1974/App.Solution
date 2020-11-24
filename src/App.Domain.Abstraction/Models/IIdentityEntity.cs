@@ -5,7 +5,12 @@
 
     }
 
-    public interface IIdentityEntity<T>
+    public interface IIdentityEntity<T> : IIdentity<T>
+    {
+        public new T Id { get; set; }
+    }
+
+    public interface IIdentity<T>
     {
         public T Id { get; set; }
     }
