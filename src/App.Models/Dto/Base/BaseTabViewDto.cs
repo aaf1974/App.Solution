@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace App.Models.Command.Base
+namespace App.Models.Dto.Base
 {
     /// <summary>
     /// Базовый объект для табличных представлений
@@ -16,8 +16,13 @@ namespace App.Models.Command.Base
     /// <summary>
     /// <inheritdoc cref="BaseTabViewDto"/>
     /// </summary>
-    public class BaseTabViewDto<T> : BaseTabViewDto
+    public class BaseTabViewDto<T> 
     {
+        /// <summary>
+        /// Общее количество записей
+        /// </summary>
+        public int RecordCount { get; set; }
+
         /// <summary>
         /// Элементы табличного представления
         /// </summary>

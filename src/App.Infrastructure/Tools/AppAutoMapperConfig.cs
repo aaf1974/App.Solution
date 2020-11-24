@@ -5,11 +5,14 @@ using System;
 
 namespace App.Infrastructure.Tools
 {
-    public class AutoMapperConfig
+    /// <summary>
+    /// Настройка автомапера для приложения
+    /// </summary>
+    public class AppAutoMapperConfig
     {
         public IMapper Mapper;
 
-        public AutoMapperConfig()
+        public AppAutoMapperConfig()
         {
             Config();
         }

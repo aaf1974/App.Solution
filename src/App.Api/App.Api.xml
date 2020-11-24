@@ -30,9 +30,9 @@
             <inheritdoc cref="T:App.Infrastructure.Interfaces.IStandartOperationHandler`4"/>
             </summary>
         </member>
-        <member name="M:App.Api.Controllers.Base.StandartOperationController`4.GetById(App.Models.Command.Base.GetByIdCommand)">
+        <member name="M:App.Api.Controllers.Base.StandartOperationController`4.GetById(App.Models.Command.Common.GetByIdCommand)">
             <summary>
-            <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteGetById(App.Models.Command.Base.GetByIdCommand)"/>
+            <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteGetById(App.Models.Command.Common.GetByIdCommand)"/>
             </summary>
         </member>
         <member name="M:App.Api.Controllers.Base.StandartOperationController`4.GetList(`1)">
@@ -45,9 +45,9 @@
             <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteSave(`0)"/>
             </summary>
         </member>
-        <member name="M:App.Api.Controllers.Base.StandartOperationController`4.Delete(App.Models.Command.Base.GetByIdCommand)">
+        <member name="M:App.Api.Controllers.Base.StandartOperationController`4.Delete(App.Models.Command.Common.GetByIdCommand)">
             <summary>
-            <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteDelete(App.Models.Command.Base.GetByIdCommand)"/>
+            <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteDelete(App.Models.Command.Common.GetByIdCommand)"/>
             </summary>
         </member>
         <member name="T:App.Api.Controllers.JW.CourthouseTypeController">

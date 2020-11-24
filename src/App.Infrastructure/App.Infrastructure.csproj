@@ -15,6 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Data\App.Data.csproj" />
+    <ProjectReference Include="..\App.Domain.Abstraction\App.Domain.Abstraction.csproj" />
+    <ProjectReference Include="..\App.Domain\App.Domain.csproj" />
     <ProjectReference Include="..\App.Models\App.Models.csproj" />
   </ItemGroup>
 

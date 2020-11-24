@@ -1,4 +1,4 @@
-﻿namespace App.Models.Command.Base
+﻿namespace App.Models.Dto.Base
 {
     /// <summary>
     /// Базовый класс для DTO

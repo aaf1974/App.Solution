@@ -1,4 +1,6 @@
 ﻿using App.Models.Command.Base;
+using App.Models.Command.Common;
+using App.Models.Dto.Base;
 using System.Threading.Tasks;
 
 namespace App.Infrastructure.Interfaces
@@ -17,9 +19,24 @@ namespace App.Infrastructure.Interfaces
     /// </summary>
     /// <typeparam name="TDto">Тип DTO для получения и сохранения объектов</typeparam>
     /// <typeparam name="TGetListCommand">Тип команды для получения списка</typeparam>
+    /// <typeparam name="TTabViewItemDto">Тип элемента табличного представления</typeparam>
+    public interface IStandartOperationHandler<TDto, TGetListCommand, TTabViewItemDto> 
+        : IStandartOperationHandler<TDto, TGetListCommand, BaseTabViewDto<TTabViewItemDto>, TTabViewItemDto>
+        where TDto: BaseItemDto
+        where TGetListCommand : BaseGetListCommand
+    {
+
+    }
+
+    /// <summary>
+    /// <inheritdoc cref="IStandartOperationHandler"/>
+    /// </summary>
+    /// <typeparam name="TDto">Тип DTO для получения и сохранения объектов</typeparam>
+    /// <typeparam name="TGetListCommand">Тип команды для получения списка</typeparam>
     /// <typeparam name="TTabViewDto">Тип для получения табличного представления</typeparam>
     /// <typeparam name="TTabViewItemDto">Тип элемента табличного представления</typeparam>
-    public interface IStandartOperationHandler<TDto, TGetListCommand, TTabViewDto, TTabViewItemDto> : IStandartOperationHandler
+    public interface IStandartOperationHandler<TDto, TGetListCommand, TTabViewDto, TTabViewItemDto> 
+        : IStandartOperationHandler
         where TDto: BaseItemDto
         where TGetListCommand : BaseGetListCommand
         where TTabViewDto: BaseTabViewDto<TTabViewItemDto>
