@@ -15,16 +15,16 @@ namespace App.Api.DiConfigure
         /// <summary>
         /// Инициализация DI Swagger
         /// </summary>
-        public static IServiceCollection SwaggerDiInit(this IServiceCollection services)
+        public static IServiceCollection SwaggerDiInit(this IServiceCollection services, string title, string description)
         {
             services.AddSwaggerGen(options =>
             {
                 //options.DescribeAllEnumsAsStrings();
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "SmartTwin - Core HTTP API",
+                    Title = title,
                     Version = "v1",
-                    Description = "The SmartTwin Core Service HTTP API"
+                    Description = description
                 });
 
                 // Set the comments path for the Swagger JSON and UI.

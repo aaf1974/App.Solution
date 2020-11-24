@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using App.Api.DiConfigure;
 using App.Data;
+using App.Infrastructure.Tools;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,9 +29,11 @@ namespace App.Api
         {
             services.AddControllers();
 
-            services.SwaggerDiInit()
+            services.SwaggerDiInit("Application Api", "Application Api Descriptor")
                 .InitPostrgresDbContext(Configuration.GetConnectionString(nameof(AppDbContext)))
-                .InitAppAutoMapper();
+                .InitAppAutoMapper()
+                .DIRegitr()
+                ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

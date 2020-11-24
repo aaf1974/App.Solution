@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace App.Infrastructure
+namespace App.Infrastructure.Tools
 {
     public class AutoMapperConfig
     {
