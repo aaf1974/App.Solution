@@ -76,6 +76,11 @@
             Возвращает перечень статичных справочников
             </summary>
         </member>
+        <member name="T:App.Api.Controllers.JW.CourthouseTypeController">
+            <summary>
+            Контроллер для управления видами судов
+            </summary>
+        </member>
         <member name="T:App.Api.DiConfigure.DataBaseInit">
             <summary>
             Инициализация БД

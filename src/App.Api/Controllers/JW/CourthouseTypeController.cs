@@ -15,7 +15,7 @@ namespace App.Api.Controllers.JW
         public CourthouseTypeController(CourthouseTypeHandler blHandler)
             : base(blHandler)
         {
-
+            
         }
     }
 }
