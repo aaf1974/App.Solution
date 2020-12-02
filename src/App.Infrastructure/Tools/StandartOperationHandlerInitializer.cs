@@ -13,7 +13,7 @@ namespace App.Infrastructure.Tools
         /// <summary>
         /// Инициализирует обработчики реализованные от IStandartOperationHandler
         /// </summary>
-        public static IServiceCollection DIRegitr(this IServiceCollection services)
+        public static IServiceCollection UseStandartOperationHandlers(this IServiceCollection services)
         {
             var type = typeof(IStandartOperationHandler);
             var types = AppDomain.CurrentDomain.GetAssemblies()

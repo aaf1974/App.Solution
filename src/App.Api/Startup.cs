@@ -29,10 +29,11 @@ namespace App.Api
         {
             services.AddControllers();
 
-            services.SwaggerDiInit("Application Api", "Application Api Descriptor")
+            services.UseSwagger("Application Api", "Application Api Descriptor")
                 .InitPostrgresDbContext(Configuration.GetConnectionString(nameof(AppDbContext)))
-                .InitAppAutoMapper()
-                .DIRegitr()
+                .UseAppAutoMapper()
+                .UseStandartOperationHandlers()
+                .UseStaticDictionary()
                 ;
         }
 
