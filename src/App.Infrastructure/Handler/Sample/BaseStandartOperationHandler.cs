@@ -6,6 +6,7 @@ using App.Models.Command.Base;
 using App.Models.Command.Common;
 using App.Models.Dto.Base;
 using App.Models.Dto.JW;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
@@ -24,9 +25,9 @@ namespace App.Infrastructure.Handler.Sample
         /// <summary>
         /// <inheritdoc cref="AutoMapperConfig"/>
         /// </summary>
-        private readonly AppAutoMapperConfig _autoMapper;
+        private readonly IMapper _autoMapper;
 
-        public BaseStandartOperationHandler(AppDbContext dbContext, AppAutoMapperConfig autoMapper)
+        public BaseStandartOperationHandler(AppDbContext dbContext, IMapper autoMapper)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _autoMapper = autoMapper ?? throw new ArgumentNullException(nameof(autoMapper));
@@ -43,7 +44,7 @@ namespace App.Infrastructure.Handler.Sample
         public async Task<CourthouseTypeDto> ExecuteGetById(GetByIdCommand command)
         {
             var dbData = await _dbContext.Set<CourthouseType>().FindAsync(command.Id);
-            return _autoMapper.Mapper.Map<CourthouseTypeDto>(dbData);
+            return _autoMapper.Map<CourthouseTypeDto>(dbData);
         }
 
         public async Task<BaseTabViewDto<CourthouseTypeTabItemDto>> ExecuteGetList(BaseGetListCommand command)
@@ -54,7 +55,7 @@ namespace App.Infrastructure.Handler.Sample
             return new BaseTabViewDto<CourthouseTypeTabItemDto>
             {
                 RecordCount = recordCount,
-                Items = _autoMapper.Mapper.Map<CourthouseTypeTabItemDto[]>(dbData)
+                Items = _autoMapper.Map<CourthouseTypeTabItemDto[]>(dbData)
             };
         }
 
@@ -64,12 +65,12 @@ namespace App.Infrastructure.Handler.Sample
             var dbdata = await _dbContext.Set<CourthouseType>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == dto.Id);
             if(dbdata == null)
             {
-                dbdata = _autoMapper.Mapper.Map<CourthouseType>(dto);
+                dbdata = _autoMapper.Map<CourthouseType>(dto);
                 _dbContext.Set<CourthouseType>().Add(dbdata);
             }
             else
             {
-                dbdata = _autoMapper.Mapper.Map<CourthouseType>(dto);
+                dbdata = _autoMapper.Map<CourthouseType>(dto);
             }
             await _dbContext.SaveChangesAsync();
 

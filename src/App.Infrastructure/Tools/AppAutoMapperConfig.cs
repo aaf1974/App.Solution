@@ -25,7 +25,6 @@ namespace App.Infrastructure.Tools
         /// <summary>
         /// Mapping for misc object 
         /// </summary>
-        /// <param name="cfg"></param>
         private void ConfigMiscMapping()
         {
             
@@ -35,12 +34,12 @@ namespace App.Infrastructure.Tools
         /// <summary>
         /// Настройка маппинга для JW
         /// </summary>
-        private void ConfigJudicalWorkMapping(IMapperConfigurationExpression cfg)
+        private void ConfigJudicalWorkMapping()
         {
-            cfg.CreateMap<CourthouseType, CourthouseTypeDto>()
+            CreateMap<CourthouseType, CourthouseTypeDto>()
                 .ReverseMap();
 
-            cfg.CreateMap<CourthouseType, CourthouseTypeTabItemDto>();
+            CreateMap<CourthouseType, CourthouseTypeTabItemDto>();
         }
     }
 }
