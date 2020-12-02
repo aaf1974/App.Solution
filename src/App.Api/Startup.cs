@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using App.Api.DiConfigure;
 using App.Data;
+using App.Infrastructure.Helper;
 using App.Infrastructure.Tools;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +31,7 @@ namespace App.Api
             services.AddControllers();
 
             services.UseSwagger("Application Api", "Application Api Descriptor")
-                .InitPostrgresDbContext(Configuration.GetConnectionString(nameof(AppDbContext)))
+                .InitPostrgresDbContext(Configuration.GetConnectionString(AppIntegrationEnvrioment.MainAppContextSettingName))
                 .UseAppAutoMapper()
                 .UseStandartOperationHandlers()
                 .UseStaticDictionary()

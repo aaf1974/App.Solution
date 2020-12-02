@@ -50,6 +50,17 @@
             <inheritdoc cref="M:App.Infrastructure.Interfaces.IStandartOperationHandler`4.ExecuteDelete(App.Models.Command.Common.GetByIdCommand)"/>
             </summary>
         </member>
+        <member name="T:App.Api.Controllers.DiagnosticController">
+            <summary>
+            Контррлер для проверок
+            </summary>
+        </member>
+        <member name="M:App.Api.Controllers.DiagnosticController.TestSerilog">
+            <summary>
+            Проверка записи в лог файл
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:App.Api.Controllers.DictionaryController">
             <summary>
             Контроллер для получения данных статичных спрвочников

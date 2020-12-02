@@ -23,7 +23,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Data.PostgresSql", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain.Abstraction", "src\App.Domain.Abstraction\App.Domain.Abstraction.csproj", "{C1362A70-9219-4797-A6C8-39885F44AA1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UnitTests", "test\App.UnitTests\App.UnitTests.csproj", "{ED9F0B13-F08C-4723-B08C-16EBEB26BEA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.UnitTests", "test\App.UnitTests\App.UnitTests.csproj", "{ED9F0B13-F08C-4723-B08C-16EBEB26BEA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E372D66A-FE46-4267-953B-0F5B707610C7}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

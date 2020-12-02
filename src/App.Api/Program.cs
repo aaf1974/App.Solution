@@ -23,7 +23,9 @@ namespace App.Api
                 //Log.Information("Template App start up");
                 CreateWebHostBuilder(args).Run();
             }
+#pragma warning disable IDE0059 // Unnecessary assignment of a value
             catch (Exception ex)
+#pragma warning restore IDE0059 // Unnecessary assignment of a value
             {
                 //Log.Fatal(ex, "Application start-up failed");
             }
