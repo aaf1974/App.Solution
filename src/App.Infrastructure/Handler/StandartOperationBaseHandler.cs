@@ -5,6 +5,7 @@ using App.Infrastructure.Tools;
 using App.Models.Command.Base;
 using App.Models.Command.Common;
 using App.Models.Dto.Base;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -34,9 +35,9 @@ namespace App.Infrastructure.Handler
         /// <summary>
         /// <inheritdoc cref="AppAutoMapperConfig"/>
         /// </summary>
-        private readonly AppAutoMapperConfig _autoMapper;
+        private readonly IMapper _autoMapper;
 
-        protected StandartOperationBaseHandler(AppDbContext dbContext, AppAutoMapperConfig autoMapper)
+        protected StandartOperationBaseHandler(AppDbContext dbContext, IMapper autoMapper)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _autoMapper = autoMapper ?? throw new ArgumentNullException(nameof(autoMapper));
@@ -54,7 +55,7 @@ namespace App.Infrastructure.Handler
         public virtual async Task<TDto> ExecuteGetById(GetByIdCommand command)
         {
             var dbItem = await _dbContext.Set<TModel>().AsNoTracking().FirstOrDefaultAsync( x => x.Id == command.Id);
-            return _autoMapper.Mapper.Map<TDto>(dbItem);
+            return _autoMapper.Map<TDto>(dbItem);
         }
 
         public virtual async Task<BaseTabViewDto<TTabViewItemDto>> ExecuteGetList(TGetListCommand command)
@@ -70,7 +71,7 @@ namespace App.Infrastructure.Handler
             return new BaseTabViewDto<TTabViewItemDto>
             {
                 RecordCount = recordCount,
-                Items = _autoMapper.Mapper.Map<TTabViewItemDto[]>(dbItem)
+                Items = _autoMapper.Map<TTabViewItemDto[]>(dbItem)
             };
         }
 
@@ -89,12 +90,12 @@ namespace App.Infrastructure.Handler
             var dbItem = await _dbContext.Set<TModel>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == dto.Id);
             if(dbItem == null)
             {
-                dbItem = _autoMapper.Mapper.Map<TModel>(dto);
+                dbItem = _autoMapper.Map<TModel>(dto);
                 _dbContext.Set<TModel>().Add(dbItem);
             }
             else
             {
-                dbItem = _autoMapper.Mapper.Map<TModel>(dto);
+                dbItem = _autoMapper.Map<TModel>(dto);
             }
 
             await _dbContext.SaveChangesAsync();

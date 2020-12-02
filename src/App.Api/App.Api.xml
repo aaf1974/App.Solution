@@ -101,6 +101,16 @@
             Регистрирует сервисы, необходимые для работы StaticDictionary
             </summary>
         </member>
+        <member name="M:App.Api.DiConfigure.DefaultDependencyRegister.UseHealthCheck(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Регистрирует HealthCheck
+            </summary>
+        </member>
+        <member name="M:App.Api.DiConfigure.DefaultDependencyRegister.UseHealthCheckMidware(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            Регистрирует HealthCheck
+            </summary>
+        </member>
         <member name="T:App.Api.DiConfigure.SerilogInitializer">
             <summary>
             Инициализация Serilog
