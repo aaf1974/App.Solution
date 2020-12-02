@@ -8,10 +8,8 @@ namespace App.Infrastructure.Tools
     /// <summary>
     /// Настройка автомапера для приложения
     /// </summary>
-    public class AppAutoMapperConfig
+    public class AppAutoMapperConfig : Profile
     {
-        public IMapper Mapper;
-
         public AppAutoMapperConfig()
         {
             Config();
@@ -19,14 +17,8 @@ namespace App.Infrastructure.Tools
 
         private void Config()
         {
-            var config = new MapperConfiguration(cfg =>
-            {
-                ConfigMiscMapping(cfg);
-                ConfigJudicalWorkMapping(cfg);
-            }
-            );
-
-            Mapper = config.CreateMapper();
+            ConfigMiscMapping();
+            ConfigJudicalWorkMapping();
         }
 
 
@@ -34,9 +26,9 @@ namespace App.Infrastructure.Tools
         /// Mapping for misc object 
         /// </summary>
         /// <param name="cfg"></param>
-        private void ConfigMiscMapping(IMapperConfigurationExpression cfg)
+        private void ConfigMiscMapping()
         {
-
+            
         }
 
 

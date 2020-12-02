@@ -2,7 +2,13 @@
 using App.Infrastructure.Interfaces;
 using App.Infrastructure.Service;
 using App.Infrastructure.Tools;
+using AutoMapper;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace App.Api.DiConfigure
 {
@@ -16,8 +22,7 @@ namespace App.Api.DiConfigure
         /// </summary>
         public static IServiceCollection UseAppAutoMapper(this IServiceCollection services)
         {
-            services.AddSingleton<AppAutoMapperConfig>();
-
+            services.AddAutoMapper(typeof(AppAutoMapperConfig));
             return services;
         }
 
@@ -31,6 +36,35 @@ namespace App.Api.DiConfigure
                 .AddScoped<IStaticDictionaryHandler, StaticDictionaryHandler>();
             
             return services;
+        }
+
+
+        /// <summary>
+        /// Регистрирует HealthCheck
+        /// </summary>
+        public static IServiceCollection UseHealthCheck(this IServiceCollection services)
+        {
+            var hcBuilder = services.AddHealthChecks();
+
+            hcBuilder.AddCheck("self", () => HealthCheckResult.Healthy());
+
+            return services;
+        }
+
+        /// <summary>
+        /// Регистрирует HealthCheck
+        /// </summary>
+        public static void UseHealthCheckMidware (this IEndpointRouteBuilder endpoints)
+        {
+            endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+            endpoints.MapHealthChecks("/liveness", new HealthCheckOptions
+            {
+                Predicate = r => r.Name.Contains("self")
+            });
         }
     }
 }
