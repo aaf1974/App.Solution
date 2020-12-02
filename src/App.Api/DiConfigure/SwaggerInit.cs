@@ -15,7 +15,7 @@ namespace App.Api.DiConfigure
         /// <summary>
         /// Инициализация DI Swagger
         /// </summary>
-        public static IServiceCollection SwaggerDiInit(this IServiceCollection services, string title, string description)
+        public static IServiceCollection UseSwagger(this IServiceCollection services, string title, string description)
         {
             services.AddSwaggerGen(options =>
             {

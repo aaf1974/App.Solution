@@ -7,10 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace App.Api.Controllers
 {
+
+    /// <summary>
+    /// Контррлер для проверок
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class DiagnosticController : ControllerBase
     {
+
+        /// <summary>
+        /// Проверка записи в лог файл
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(nameof(TestSerilog))]
         public string TestSerilog()
         {
